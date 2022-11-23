@@ -1,1 +1,3 @@
 0-starter-project/
+node_modules
+package-lock.json
