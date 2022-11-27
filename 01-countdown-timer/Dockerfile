@@ -1,4 +1,4 @@
-FROM node:12-al
+FROM node:12-alpine
 
 RUN mkdir -p /home/server
 
