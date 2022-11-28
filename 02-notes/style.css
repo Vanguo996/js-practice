@@ -11,9 +11,22 @@ body {
     background-size: cover;
     background-position: center;
     display: flex;
-    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+    align-items: center;
+    flex-wrap: wrap;
     font-family: 'Muli', sans-serif;
     margin: 100; 
+    padding-top: 2rem;
+}
+
+h1 {
+    font-family: 'Muli', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .add {
@@ -25,6 +38,12 @@ body {
     top: 1rem;
     right: 1rem;
     z-index: 100;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+.add:active{
+    transform: scale(0.98);
 }
 
 .notes {
@@ -34,7 +53,8 @@ body {
     height: 300px;
     /* border-radius: 10px; */
     box-shadow: 0 0 5px 1px rgb(108, 108, 108);
-
+    display: flex;
+    flex-direction: column;
 } 
 
 .notes .tools {
@@ -52,6 +72,7 @@ body {
     color:black;
     font-size: 1rem;
     margin-left: 0.5rem;
+    cursor: pointer;
 }
 
 .notes .main {
