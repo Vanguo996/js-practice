@@ -16,13 +16,24 @@ body {
     margin: 100; 
 }
 
+.add {
+    background-color: black;
+    color: aliceblue;
+    border: 0;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+}
+
 .notes {
     background-color: white;
     margin: 2rem;
     width: 300px;
     height: 300px;
     /* border-radius: 10px; */
-    /* box-shadow: 100px; */
+    box-shadow: 0 0 5px 1px rgb(108, 108, 108);
 
 } 
 
@@ -36,17 +47,22 @@ body {
 
 .notes .tools button {
     background-color: transparent;
+    border: none;
+    cursor:auto;
     color:black;
     font-size: 1rem;
     margin-left: 0.5rem;
 }
 
 .notes .main {
+    background-color: #eee;
+    overflow: hidden;
     height: 100%;
     width: 100%;
 }
 
 .notes textarea {
+    background-color: #eee;
     outline: none;
     font-family: inherit;
     border: 0;
