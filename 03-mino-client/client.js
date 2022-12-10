@@ -1,41 +1,65 @@
 var Minio = require('minio')
+const dotenv = require('dotenv')
+
+dotenv.config({ path: '.env.local' })
+
+console.log(process.env.ACCESSKEY)
 
 bucketConfig = {
     endPoint: '47.101.189.236',
     port: 9000,
     useSSL: false,
-    accessKey: 'wSOn9oYPeHP9kW1y',
-    secretKey: 'UnEBxuMFqfx9xbEbyq4Cb3Olfagq3hml'
+    accessKey: 'pro',
+    secretKey: ''
 }
 
-  // 创建bucket
 
 var minioClient = new Minio.Client(bucketConfig);
 
-// createBucket(minioClient, "photos");v
-var obejctNames = getUrlsFromBucket(minioClient, 'videos');
-// console.log(obejctNames);
+// createBucket(minioClient, "books")
+
+// getUrlsFromBucket(minioClient, 'books');
+
+// listBuckets(minioClient);
+
+// getPolicy(minioClient)
+
+// function getPolicy(minioClient) {
+//     minioClient.getBucketPolicy('books', 'img-', function(err, policy) {
+//         if (err) throw err
+//         console.log(`Bucket policy: ${policy}`)
+//     })
+// }
+
+
+
+
+// testBook = "你不知道的JavaScript（下卷）++.pdf"
+
+// var res = getUrl(minioClient, "books", testBook);
+// console.log(res)
+
 
 // 获取下载url，默认7天失效
-function getUrl(bucketName, fileName) {
-    minioClient.presignedUrl('GET', bucketName, fileName, function(err, presignedUrl) {
-        if (err) return console.log(err)
-        console.log(presignedUrl);
-      })
+function getUrl(minioClient, bucketName, fileName) {
+    var promise = minioClient.presignedUrl('GET', bucketName, fileName)
+    var urls = [];
+    promise.then(function (result) {
+        console.log(result)
+        urls.push(result);
+    });
+    // console.log(urls)
+    return urls;
 }
 
-function getUrlsFromBucket(minioClient, bucketName) {
-    var stream = minioClient.listObjects(bucketName,'', true)
-    var names = []
-    stream.on('data', function(obj) { 
-        names.push(obj.name);
-        // var urls = getUrl(bucketName, obj.name)
-        // console.log(urls)
-        // return urls
-    })
-    stream.on('error', function(err) { console.log(err) } )
-    console.log(names)
-}
+//获取桶内所有文件的url
+// function getUrlsFromBucket(minioClient, bucketName) {
+//     var stream = minioClient.listObjects(bucketName,'', true)
+//     var names = []
+//     var res = stream.on('data')
+
+//     stream.on('error', function(err) { console.log(err) } )
+// }
 
 
 function createBucket(minioClient, bucketName) {
