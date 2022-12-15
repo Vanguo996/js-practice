@@ -4,7 +4,7 @@ const app = express()
 
 app.use(express.static(path.join(__dirname, '.')))
 
-app.listen(80, () => {
-  console.log('App listening at port 80')
+app.listen(9090, () => {
+  console.log('App listening at port 9090')
 })
 

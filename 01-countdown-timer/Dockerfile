@@ -1,11 +1,11 @@
 FROM node:12-alpine
 
-RUN mkdir -p /home/server
+RUN mkdir /app
 
-WORKDIR /home/server
+WORKDIR /app
 
-COPY . /home/server/
+COPY . /app
 
-EXPOSE 80
+EXPOSE 9090
 
 CMD npm install express && node server.js

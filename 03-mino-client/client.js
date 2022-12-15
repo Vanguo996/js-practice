@@ -3,18 +3,18 @@ const dotenv = require('dotenv')
 
 dotenv.config({ path: '.env.local' })
 
-console.log(process.env.ACCESSKEY)
-
 bucketConfig = {
     endPoint: '47.101.189.236',
     port: 9000,
     useSSL: false,
-    accessKey: 'pro',
-    secretKey: ''
+    accessKey: process.env.ACCESSKEY,
+    secretKey: process.env.SECRETKEY
 }
 
 
 var minioClient = new Minio.Client(bucketConfig);
+
+
 
 // createBucket(minioClient, "books")
 
@@ -37,20 +37,27 @@ var minioClient = new Minio.Client(bucketConfig);
 // testBook = "你不知道的JavaScript（下卷）++.pdf"
 
 // var res = getUrl(minioClient, "books", testBook);
-// console.log(res)
+// // console.log(res)
 
 
-// 获取下载url，默认7天失效
-function getUrl(minioClient, bucketName, fileName) {
-    var promise = minioClient.presignedUrl('GET', bucketName, fileName)
-    var urls = [];
-    promise.then(function (result) {
-        console.log(result)
-        urls.push(result);
-    });
-    // console.log(urls)
-    return urls;
-}
+// // 获取下载url，默认7天失效
+// function getUrl(minioClient, bucketName, fileName) {
+//     var promise = minioClient.presignedUrl('GET', bucketName, fileName)
+//     var url;
+//     var res;
+//     promise.then(function res(result) {
+//         console.log("in the call back function:", result)
+//         url = result
+//         // console.log(url)
+//     });
+//     console.log(url)
+//     // test(res);
+// }
+
+// function test(fn) {
+//     fn();
+// }
+
 
 //获取桶内所有文件的url
 // function getUrlsFromBucket(minioClient, bucketName) {
