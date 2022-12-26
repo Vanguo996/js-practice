@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    
+    
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Muli', sans-serif;
+    margin: 50; 
+    background-color: antiquewhite;
+
+    /* padding-top: 2rem; */
+}
+
+.slider-container {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 500px;
+    width: 700px;
+}
+
+.image-container {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.btn {
+    position: absolute;
+    /* 调整到一半的位置 */
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 20px;
+    /* 透明度 */
+    opacity: .5; 
+    cursor: pointer; 
+}
+
+.btn.prev {
+    left: 10px;
+}
+
+.btn.next {
+    right: 10px;
+}
+
+/* 悬停在上方时改变透明度 */
+.btn:hover{
+    opacity: 1;
+}
+
+#date-slider {
+    display: flex;
+    margin: 1em;
+  }
+  
+#year-slider, #month-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+#year-input, #month-input {
+    width: 20em;
+    /* appearance: none; */
+    background: transparent;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+  
+#year-label, #month-label {
+    margin: 0.5em 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+img{
+    object-fit: cover;
+    height: 500px;
+    width: 700px;
+}

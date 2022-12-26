@@ -4,9 +4,10 @@ const dotenv = require('dotenv')
 dotenv.config({ path: '.env.local' })
 
 bucketConfig = {
-    endPoint: '47.101.189.236',
-    port: 9000,
-    useSSL: false,
+    // endPoint: '47.101.189.236',
+    endPoint: 'img.vanguo.tech',
+    // port: ,
+    // useSSL: false,
     accessKey: process.env.ACCESSKEY,
     secretKey: process.env.SECRETKEY
 }
@@ -16,7 +17,7 @@ var minioClient = new Minio.Client(bucketConfig);
 
 
 
-// createBucket(minioClient, "books")
+createBucket(minioClient, "books")
 
 // getUrlsFromBucket(minioClient, 'books');
 
