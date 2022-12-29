@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>❤️yehome&van</title>
     <link rel="stylesheet" href="style.css">
     <link
     rel="stylesheet"
     href="
   https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
   />
+
 </head>
 <body>
+  <h1>我们的相册</h1>
     <div class="slider-container">
         <div class="image-container " id="images">
             <img src="http://rnh9x0nia.sabkt.gdipper.com/2nd-pics/DSC_8923.JPG" alt=""/>
@@ -26,7 +28,10 @@
         <i class="fa-solid fa-angles-right btn next"></i>
     </div>
 
-    <div id="date-slider">
+
+    <div class="selector">
+      <div class="text-selector">选择年份月份</div>
+      <div id="date-slider">
         <div id="year-slider">
           <div id="year-label">2022 年</div>
           <input type="range" id="year-input" min="2020" max="2023" value="2020">
@@ -35,11 +40,12 @@
           <div id="month-label">1 月</div>
           <input type="range" id="month-input" min="1" max="12" value="1">
         </div>
+      </div>
+      <button class="button" type="submit">确认</button>
     </div>
 
-    <div class="submit">
-        <button type="submit">确认</button>
-    </div>
+
     <script src="app.js"></script>
+    <script src="canvas.js"></script>
 </body>
 </html>

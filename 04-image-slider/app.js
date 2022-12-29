@@ -44,3 +44,5 @@ yearInput.addEventListener('input', () => {
 monthInput.addEventListener('input', () => {
   monthLabel.textContent = `${months[monthInput.value - 1]} 月`;
 });
+
+
